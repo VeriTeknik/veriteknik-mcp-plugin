@@ -1,0 +1,11 @@
+{
+  "name": "veriteknik",
+  "version": "1.0.0",
+  "description": "Manage your VeriTeknik servers, DNS, backups and support tickets from Cursor: check server health, read logs, update DNS records and open support tickets.",
+  "author": { "name": "VeriTeknik", "email": "info@veriteknik.com" },
+  "homepage": "https://veriteknik.com/docs/en/mcp/",
+  "repository": "https://github.com/VeriTeknik/veriteknik-mcp-plugin",
+  "license": "MIT",
+  "logo": "assets/logo.png",
+  "keywords": ["devops", "hosting", "vps", "dns", "monitoring", "backups", "mcp"]
+}

@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "veriteknik": {
+      "url": "https://veriteknik.com/api/mcp"
+    }
+  }
+}
