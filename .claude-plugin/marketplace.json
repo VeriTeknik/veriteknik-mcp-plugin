@@ -1,0 +1,16 @@
+{
+  "name": "veriteknik",
+  "owner": { "name": "VeriTeknik", "email": "info@veriteknik.com" },
+  "metadata": {
+    "description": "Official VeriTeknik plugins for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "veriteknik",
+      "source": "./",
+      "description": "Manage VeriTeknik VPS, dedicated servers, DNS, domains, invoices and support tickets from Claude Code over the VeriTeknik MCP server.",
+      "category": "devops",
+      "homepage": "https://veriteknik.com/docs/en/mcp/"
+    }
+  ]
+}

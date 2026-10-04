@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "veriteknik": {
+      "type": "http",
       "url": "https://veriteknik.com/api/mcp"
     }
   }
