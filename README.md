@@ -162,11 +162,49 @@ gemini extensions install https://github.com/VeriTeknik/veriteknik-mcp-plugin
 
 Then run `/mcp auth veriteknik` inside a session to sign in.
 
-### VS Code, Windsurf, Codex and others
+### VS Code / GitHub Copilot
 
-The endpoint is a single Streamable HTTP URL.
-Any client that supports remote MCP servers with OAuth 2.1 and dynamic client registration can connect.
-Exact configuration for VS Code / GitHub Copilot, Windsurf, Codex, Devin, Kilo Code, LM Studio, Cline and JetBrains is in the [setup guide](https://veriteknik.com/docs/en/mcp/#setup).
+`.vscode/mcp.json` in the project root (the key is `servers`, not `mcpServers`):
+
+```json
+{
+  "servers": {
+    "veriteknik": {
+      "type": "http",
+      "url": "https://veriteknik.com/api/mcp"
+    }
+  }
+}
+```
+
+The first agent-mode call asks you to sign in.
+
+### Windsurf
+
+`~/.codeium/windsurf/mcp_config.json` (the field is `serverUrl`, not `url`):
+
+```json
+{
+  "mcpServers": {
+    "veriteknik": {
+      "serverUrl": "https://veriteknik.com/api/mcp"
+    }
+  }
+}
+```
+
+### Codex (CLI, IDE extension and app)
+
+```bash
+codex mcp add veriteknik --url https://veriteknik.com/api/mcp
+codex mcp login veriteknik
+```
+
+### Other clients
+
+The endpoint is a single Streamable HTTP URL; if a client asks for a transport, choose **Streamable HTTP**.
+Any client that supports remote MCP servers with OAuth 2.1 and dynamic client registration can connect; there is no static token to paste.
+Configuration for JetBrains AI Assistant, Kilo Code, Cline, LM Studio, Devin and others is in the [setup guide](https://veriteknik.com/docs/en/mcp/#setup).
 If an agent is installing this for you, point it at [`llms-install.md`](llms-install.md).
 
 ## Before you start
