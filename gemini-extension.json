@@ -1,0 +1,11 @@
+{
+  "name": "veriteknik",
+  "version": "1.0.0",
+  "description": "Manage your VeriTeknik servers, DNS, backups and support tickets: check server health, read logs, update DNS records and open support tickets.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "veriteknik": {
+      "httpUrl": "https://veriteknik.com/api/mcp"
+    }
+  }
+}

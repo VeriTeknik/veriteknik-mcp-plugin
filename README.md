@@ -1,6 +1,6 @@
-# VeriTeknik plugin for Cursor
+# VeriTeknik MCP plugin
 
-Connects Cursor to the VeriTeknik MCP server so the agent can work with your VeriTeknik infrastructure.
+Connects Cursor, Gemini CLI and other MCP clients to the VeriTeknik MCP server so the agent can work with your VeriTeknik infrastructure.
 
 ## What it can do
 
@@ -12,8 +12,8 @@ Connects Cursor to the VeriTeknik MCP server so the agent can work with your Ver
 
 ## Setup
 
-1. Install the plugin from the Cursor Marketplace.
-2. Cursor connects to `https://veriteknik.com/api/mcp` and opens VeriTeknik's sign-in page (OAuth 2.1 with PKCE). No API key is needed.
+1. Install the plugin from the Cursor Marketplace, or run `gemini extensions install https://github.com/VeriTeknik/veriteknik-mcp-plugin` for Gemini CLI.
+2. The client connects to `https://veriteknik.com/api/mcp` and opens VeriTeknik's sign-in page (OAuth 2.1 with PKCE). No API key is needed.
 3. On VeriTeknik's consent screen, choose the permission groups the agent receives and approve.
 
 Requires an active VeriTeknik customer account. Server tools need Morpheus access enabled on the server in the VeriTeknik hub.
@@ -28,6 +28,8 @@ Write tools are annotated, destructive actions ask for confirmation, and server 
 - Support: https://veriteknik.com/en/support
 - Privacy: https://veriteknik.com/en/privacy
 - Official MCP Registry entry: `com.veriteknik/mcp`
+- Gemini CLI: `gemini extensions install https://github.com/VeriTeknik/veriteknik-mcp-plugin`
+- Other MCP clients: see `llms-install.md`
 
 ## License
 
