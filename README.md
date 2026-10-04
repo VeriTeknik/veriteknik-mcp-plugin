@@ -2,11 +2,11 @@
   <img src="assets/logo-400.png" alt="VeriTeknik" width="96" height="96">
 </p>
 
-<h1 align="center">VeriTeknik MCP plugin</h1>
+<h1 align="center">VeriTeknik plugin for Cursor</h1>
 
 <p align="center">
   Manage your VeriTeknik VPS, dedicated servers, DNS, domains, invoices and support tickets
-  from Cursor, Claude Code, Gemini CLI, Claude Desktop, ChatGPT or any MCP client.
+  from the Cursor agent.
 </p>
 
 <p align="center">
@@ -19,12 +19,13 @@
 ---
 
 [VeriTeknik](https://veriteknik.com) is an infrastructure and managed hosting provider in Turkey: VPS, dedicated servers, domains, DNS, monitoring and managed services.
-This plugin connects your AI agent to the **VeriTeknik MCP server** (`https://veriteknik.com/api/mcp`), so the agent can look at your infrastructure, troubleshoot it and act on it on your behalf, inside limits you set.
+This plugin connects Cursor to the **VeriTeknik MCP server** (`https://veriteknik.com/api/mcp`), so the Cursor agent can look at your infrastructure, troubleshoot it and act on it on your behalf, inside limits you set.
+Fix the code and the server it runs on from the same chat: read the production error log, find the bug in your repo, deploy, check the service came back.
 
 There is no API key to copy.
 You sign in with OAuth, pick what the agent may touch, set a monthly spend cap, and revoke the connection with one click whenever you like.
 
-## Ask your agent things like
+## Ask the Cursor agent things like
 
 - *"List my VeriTeknik servers. Which ones are running?"*
 - *"web-01 feels slow. Check load, memory, disks and failed services."*
@@ -117,10 +118,9 @@ The full, always current reference is in the [documentation](https://veriteknik.
 
 ## Install
 
-### Cursor
+**From the Cursor Marketplace:** search for **VeriTeknik** and install.
 
-Install **VeriTeknik** from the Cursor Marketplace.
-Or add it by hand to `~/.cursor/mcp.json` (all projects) or `.cursor/mcp.json` (one project):
+**By hand:** add this to `~/.cursor/mcp.json` (all projects) or `.cursor/mcp.json` (one project):
 
 ```json
 {
@@ -132,48 +132,12 @@ Or add it by hand to `~/.cursor/mcp.json` (all projects) or `.cursor/mcp.json` (
 }
 ```
 
-Cursor marks the server **Needs login**; click it and the VeriTeknik consent page opens in your browser.
+Either way, Cursor marks the server **Needs login**.
+Click it, sign in to VeriTeknik in the browser, choose what the agent may do on the consent page and approve.
+The tools then appear in **Cursor Settings > MCP**, and the agent uses them when your request needs them.
 
-### Claude Code
-
-As a plugin:
-
-```text
-/plugin marketplace add VeriTeknik/veriteknik-mcp-plugin
-/plugin install veriteknik@veriteknik
-```
-
-Or as a plain MCP server:
-
-```bash
-claude mcp add --transport http veriteknik https://veriteknik.com/api/mcp
-```
-
-Then type `/mcp`, choose `veriteknik` and sign in.
-
-### Gemini CLI
-
-```bash
-gemini extensions install https://github.com/VeriTeknik/veriteknik-mcp-plugin
-```
-
-Then run `/mcp auth veriteknik` inside a session to sign in.
-
-### Claude Desktop and claude.ai
-
-**Settings > Connectors > Add custom connector**, paste `https://veriteknik.com/api/mcp`, then sign in and approve.
-
-### ChatGPT
-
-Turn on **Developer mode** (Settings > Security and login), then **Settings > Connectors > Create** and put `https://veriteknik.com/api/mcp` in the MCP server URL field.
-In ChatGPT the two ordering tools (`create_vps`, `register_domain`) are not offered; order in the VeriTeknik hub instead.
-
-### VS Code, Windsurf, Codex and others
-
-The endpoint is a single Streamable HTTP URL: `https://veriteknik.com/api/mcp`.
-Any client that supports remote MCP servers with OAuth 2.1 and dynamic client registration can connect.
-Exact configuration for VS Code / GitHub Copilot, Windsurf, Codex, Devin, Kilo Code, LM Studio, Cline and JetBrains is in the [setup guide](https://veriteknik.com/docs/en/mcp/#setup).
-If an agent is installing this for you, point it at [`llms-install.md`](llms-install.md).
+Using another client (Gemini CLI, VS Code, Windsurf, Claude, ChatGPT...)?
+The same server works there too; see the [setup guide](https://veriteknik.com/docs/en/mcp/#setup) or [`llms-install.md`](llms-install.md).
 
 ## Before you start
 
@@ -197,7 +161,7 @@ Narrowing applies to the agent's very next call.
 Other guardrails:
 
 - Every state-changing call carries a request id, so a retried call never creates a second server, ticket or snapshot.
-- Tool annotations mark which tools are read-only, which change things and which are destructive, so your client can ask before running them.
+- Tool annotations mark which tools are read-only, which change things and which are destructive, so Cursor can ask before running them.
 - The company always comes from the connection itself; an agent cannot name a different tenant.
 - Reinstalling a server, resetting a root password, resizing, paying invoices and managing cards stay in the hub on purpose.
 
@@ -216,13 +180,14 @@ More in the [documentation](https://veriteknik.com/docs/en/mcp/#when-something-g
 
 ## Türkçe
 
-Bu eklenti Cursor, Claude Code, Gemini CLI, Claude Desktop, ChatGPT ve MCP destekleyen diğer yapay zekâ araçlarını VeriTeknik hesabınıza bağlar.
-Ajanınız VPS ve fiziksel sunucularınızın durumuna bakabilir, logları okuyup sorunu bulabilir, DNS kayıtlarını değiştirebilir, alan adı sorgulayıp kaydedebilir, bakiyeden VPS açabilir, faturalarınızı ve sözleşmelerinizi okuyabilir, destek talebi açabilir.
+Bu eklenti Cursor'ı VeriTeknik hesabınıza bağlar.
+Cursor ajanı VPS ve fiziksel sunucularınızın durumuna bakabilir, logları okuyup sorunu bulabilir, DNS kayıtlarını değiştirebilir, alan adı sorgulayıp kaydedebilir, bakiyeden VPS açabilir, faturalarınızı ve sözleşmelerinizi okuyabilir, destek talebi açabilir.
 
 API anahtarı yoktur: OAuth ile giriş yaparsınız, onay ekranında hangi izin gruplarını vereceğinizi ve bağlantının aylık harcama tavanını (varsayılan 0) siz seçersiniz, bağlantı 90 gün sonra kendiliğinden düşer.
 Başlamadan önce bir şirket sahibi ya da yöneticinin panelde **Ayarlar > Ajan Bağlantıları > AI Ajanı Erişimi (MCP)** kartından **MCP erişimini etkinleştir** anahtarını açması gerekir.
 
-Kurulum adımları ve tüm araçların listesi: [veriteknik.com/docs/mcp](https://veriteknik.com/docs/mcp/).
+Kurulum: Cursor Marketplace'te **VeriTeknik**'i aratıp kurun, sunucu **Needs login** dediğinde tıklayıp tarayıcıda giriş yapın ve onaylayın.
+Tüm araçların listesi ve ayrıntılar: [veriteknik.com/docs/mcp](https://veriteknik.com/docs/mcp/).
 
 ## Links
 
@@ -237,13 +202,12 @@ Kurulum adımları ve tüm araçların listesi: [veriteknik.com/docs/mcp](https:
 | Path | Used by |
 |---|---|
 | `.cursor-plugin/plugin.json` | Cursor plugin manifest |
-| `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | Claude Code plugin and marketplace manifests |
 | `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension and the context it gives the model |
-| `mcp.json` | The MCP server definition the Cursor and Claude Code plugins load |
+| `mcp.json` | The MCP server the Cursor plugin connects to |
 | `llms-install.md` | Install instructions written for an AI agent doing the setup |
 | `assets/logo.png`, `assets/logo-400.png` | Logo |
 
-This repository holds only the plugin wrappers; the MCP server itself runs at VeriTeknik.
+This repository holds only the plugin definition; the MCP server itself runs at VeriTeknik.
 
 ## License
 
