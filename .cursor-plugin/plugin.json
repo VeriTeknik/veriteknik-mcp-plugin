@@ -1,0 +1,15 @@
+{
+  "name": "veriteknik",
+  "version": "1.1.0",
+  "description": "Manage VeriTeknik from your AI agent: check VPS and server health, read logs, run safe diagnostics, manage DNS records, register domains, order or delete VPS from balance, read invoices and contracts, and open support tickets. OAuth sign-in, per-connection permissions and spend cap.",
+  "author": { "name": "VeriTeknik", "email": "info@veriteknik.com" },
+  "homepage": "https://veriteknik.com/docs/en/mcp/",
+  "repository": "https://github.com/VeriTeknik/veriteknik-mcp-plugin",
+  "license": "MIT",
+  "logo": "assets/logo.png",
+  "keywords": [
+    "veriteknik", "mcp", "model-context-protocol", "devops", "hosting", "cloud", "vps",
+    "dedicated-server", "server-monitoring", "logs", "dns", "domains", "ssl", "backups",
+    "support-tickets", "billing", "infrastructure", "turkey"
+  ]
+}
